@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import { MainPage } from "./components/mainPage";
+import { MainPage } from "./Pages/mainPage";
+import { LoginPage } from "./Pages/loginPage";
 
 export const Router = () => {
   return (
@@ -8,6 +9,7 @@ export const Router = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/Main" element={<MainPage />} />
+          <Route path="/Login" element={<LoginPage/>} />
         </Routes>
       </BrowserRouter>
     </Container>

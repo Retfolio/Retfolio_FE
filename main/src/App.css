@@ -26,10 +26,19 @@
 
 body {
   font-family: "Pretendard";
+  background-color: black;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Pretendard";
+}
+
+html {
+  transition: filter 0.5s ease, background-color 0.5s ease;
+}
+
+html.invert-mode {
+  filter: invert(100%) hue-rotate(180deg);
 }

@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import backgroundImage from '../assets/background.svg';
-import logoImage from '../assets/mainlogo.svg';
+import { Header } from '../components/MainPage/header';
 
 export const MainPage = () => {
   return (
     <Container>
-      <Header>
-        <Logo src={logoImage}></Logo>
-      </Header>
+      <Header />
       <Content>
         <Subtitle>전문 프로젝트 소개 서비스</Subtitle>
         <Title>자신있는 프로젝트</Title>
@@ -29,17 +26,6 @@ const Container = styled.div`
   background-color: #000;
   color: #fff;
   user-select: none;
-`;
-
-const Header = styled.header`
-  width: 100%;
-  float: left;
-`;
-
-const Logo = styled.img`
-  width: 7%;
-  margin-left: 121px;
-  margin-top: 20px;
 `;
 
 const Content = styled.div`
