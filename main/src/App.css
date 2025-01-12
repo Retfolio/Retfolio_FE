@@ -29,15 +29,11 @@
   src: url('https://fonts.googleapis.com/css2?family=Anek+Odia:wght@100..800&family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap') format("woff");
 }
 
+
+
 body {
   font-family: "Pretendard";
   background-color: black;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Pretendard";
 }
 
 html {

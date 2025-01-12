@@ -28,7 +28,7 @@ export const SubHeader = () => {
 };
 
 const Container = styled.div`
-  width: 86vw;
+  width: 85%;
   display: flex;
   color: white;
   margin: auto;
@@ -41,7 +41,7 @@ const MainContainer = styled.div`
 `;
 
 const Title = styled.div`
-  margin-right: 30px;
+  margin-right: 40px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;

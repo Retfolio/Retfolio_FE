@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Header } from "../header";
 import { SubHeader } from "../subheader";
-import { Section }
+import { Project } from "../components/MainPage/project"
 
 export const SeeProject = () => {
   return (
@@ -10,7 +10,7 @@ export const SeeProject = () => {
       <Container>
         <Header />
         <SubHeader />
-        <Section />
+        <Project />
       </Container>
     </>
   )

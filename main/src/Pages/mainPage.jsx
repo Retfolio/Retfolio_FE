@@ -20,8 +20,10 @@ export const MainPage = () => {
         <Header />
         <Content>
           <Subtitle>전문 프로젝트 소개 서비스</Subtitle>
+          <TitleContainer>
           <Title>자신있는 프로젝트</Title>
           <Title>지금 바로 뽐내보세요</Title>
+          </TitleContainer>
           <Button onClick={handleStartClick}>지금 바로 시작하기</Button>
         </Content>
         <Backgroundtext>Retfolio</Backgroundtext>
@@ -31,11 +33,11 @@ export const MainPage = () => {
 };
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 100vh 사용 */
   background-color: #000;
   color: #fff;
   user-select: none;
@@ -46,23 +48,29 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0;
-  margin: 0;
 `;
 
-const Subtitle = styled.p`
-  font-size: 16px;
-  margin-bottom: 30px;
+const TitleContainer = styled.div`
+  text-align: center;
+  height: 50%;
+  padding: 0; /* 추가 패딩 제거 */
 `;
 
 const Title = styled.h2`
   font-size: 48px;
   font-weight: bold;
+  margin: 0; /* 상하 여백 제거 */
+`;
+
+const Subtitle = styled.p`
+  font-size: 16px;
+  margin-bottom: 30px;
 `;
 
 const Button = styled.button`
@@ -85,6 +93,4 @@ const Backgroundtext = styled.h1`
   font-size: 128px;
   color: #ffffff10;
   margin-right: 77%;
-  bottom: 120px;
-  position: relative;
 `;
