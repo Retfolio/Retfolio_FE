@@ -28,9 +28,6 @@ export const InvertBtn = () => {
 const Container = styled.div`
   display: flex;
   justify-content: flex-end;
-  position: relative;
-  bottom: 30px;
-  margin-right: 30px;
 `;
 
 const Btn = styled.div`

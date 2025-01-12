@@ -1,19 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Header } from '../components/MainPage/header';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Header } from '../header';
+import { useNavigate } from 'react-router-dom';
 
 export const MainPage = () => {
+  const navigate = useNavigate();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleStartClick = () => {
+    setIsTransitioning(true); // 애니메이션 시작
+    setTimeout(() => {
+      navigate('/Login'); // 페이지 이동
+    }, 1000); // 애니메이션 지속 시간과 일치
+  };
+
   return (
-    <Container>
-      <Header />
-      <Content>
-        <Subtitle>전문 프로젝트 소개 서비스</Subtitle>
-        <Title>자신있는 프로젝트</Title>
-        <Title>지금 바로 뽐내보세요</Title>
-        <Button>지금 바로 시작하기</Button>
-      </Content>
-      <Backgroundtext>Retfolio</Backgroundtext>
-    </Container>
+    <>
+      <Container isTransitioning={isTransitioning}>
+        <Header />
+        <Content>
+          <Subtitle>전문 프로젝트 소개 서비스</Subtitle>
+          <Title>자신있는 프로젝트</Title>
+          <Title>지금 바로 뽐내보세요</Title>
+          <Button onClick={handleStartClick}>지금 바로 시작하기</Button>
+        </Content>
+        <Backgroundtext>Retfolio</Backgroundtext>
+      </Container>
+    </>
   );
 };
 
@@ -22,10 +35,14 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; /* 100vh 사용 */
   background-color: #000;
   color: #fff;
   user-select: none;
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: ${({ isTransitioning }) => (isTransitioning ? 0 : 1)};
+  transform: ${({ isTransitioning }) =>
+    isTransitioning ? "scale(0.95)" : "scale(1)"};
 `;
 
 const Content = styled.div`
@@ -70,4 +87,4 @@ const Backgroundtext = styled.h1`
   margin-right: 77%;
   bottom: 120px;
   position: relative;
-`
+`;
