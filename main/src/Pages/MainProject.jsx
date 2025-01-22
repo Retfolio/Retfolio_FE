@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { Header } from "../header";
-import { SubHeader } from "../subheader";
+import { SubHeader } from "../components/MainPage/subheader";
 import { Project } from "../components/MainPage/project"
+import { Writing } from "../components/MainPage/writing";
 
-export const SeeProject = () => {
+export const MainProject = () => {
+
   return (
     <>
       <Container>
         <Header />
         <SubHeader />
-        <Project />
       </Container>
     </>
-  )
-}
+  );
+};
 
 
 

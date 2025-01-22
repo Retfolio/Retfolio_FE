@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { MainPage } from "./Pages/mainPage";
 import { LoginPage } from "./Pages/loginPage";
-import { SeeProject } from "./Pages/seeProject";
+import { MainProject } from "./Pages/MainProject";
 
 export const Router = () => {
   return (
@@ -11,8 +11,8 @@ export const Router = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/Login" element={<LoginPage/>} />
-            <Route path="/See" element={<SeeProject/>} />
+            <Route path="/Login" element={<LoginPage />} />
+            <Route path="/Mainproject" element={<MainProject />} />
           </Routes>
         </BrowserRouter>
       </GlobalStyle>

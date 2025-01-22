@@ -11,9 +11,9 @@ export const LoginPage = () => {
   const handleLogin = () => {
     setIsLoading(true);
     setTimeout(() => {
-      navigate('/See'); // 페이지 이동
+      navigate('/MainProject');
       setIsLoading(false);
-    }, 1000); // 로딩 시뮬레이션 (1초)
+    }, 1000);
   };
 
   return (
@@ -40,10 +40,8 @@ const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   user-select: none;
-
-  /* 초기 상태 설정 */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1.2s ease forwards;
@@ -70,13 +68,13 @@ const LoginContainer = styled.div`
   padding: 20px;
   border: 2px solid rgb(252, 236, 236);
   border-radius: 12px;
-  background-color: #1f1f1f; /* 컨테이너 배경 색상 */
+  background-color: #1f1f1f;
 `;
 
 const Title = styled.h2`
   color: #fff;
   font-size: 24px;
-  margin-bottom: 10px;
+  margin: 30px 0px 0px 0px;
 `;
 
 const Subtitle = styled.p`
@@ -86,7 +84,7 @@ const Subtitle = styled.p`
 `;
 
 const Highlight = styled.span`
-  color: #ffca28; /* 노란색 강조 */
+  color: #ffca28;
 `;
 
 const LoginButton = styled.button`
@@ -105,6 +103,7 @@ const LoginButton = styled.button`
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   opacity: ${({ disabled }) => (disabled ? 0 : 1)};
   transition: all 0.3s ease;
+  margin-bottom: 30px;
 
   &:hover {
     background-color: ${({ disabled }) => (disabled ? "#fff" : "#e0e0e0")};

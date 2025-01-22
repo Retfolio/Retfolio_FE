@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-
 export const Project = () => {
   const [imageSrc, setImageSrc] = useState(null);
 
   const cards = new Array(12).fill({
-    logo: "https://via.placeholder.com/50",
+    logo: "https://via.placeholder.com/150",
     title: "Retfolio",
-    subtitle: "웹사이트 포트폴리오 제작 서비스 ",
-    rating: "⭐⭐⭐⭐⭐"
+    subtitle: "웹사이트 포트폴리오 제작 서비스",
+    rating: "⭐⭐⭐⭐⭐",
+    tags: ["개인", "팀", "도전적", "창의적"],
+    quote: "모든 포트폴리오를 한눈에"
   });
 
   const handleImageChange = (event) => {
@@ -28,113 +29,138 @@ export const Project = () => {
   };
 
   return (
-    <>
     <Container>
-        <GridContainer>
-          {cards.map((card, index) => (
-            <Card key={index}>
-              <ImgContainer>
-                <LogoImg
-                  src={imageSrc || "https://via.placeholder.com/150"}
-                  alt="Logo"
-                  onClick={triggerFileSelect}
-                  />
-                <HiddenInput
-                  id="fileInput"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  />
-              </ImgContainer>
-              <CardContainer>
-                <Title>{card.title}</Title>
-                <Subtitle>{card.subtitle}</Subtitle>
-                <Button>자세히 보기</Button>
-              </CardContainer>
-              
-            </Card>
-          ))}
-        </GridContainer>
-      </Container>
-    </>
+      <GridContainer>
+        {cards.map((card, index) => (
+          <Card key={index}>
+            <LogoContainer>
+              <LogoImg
+                src={imageSrc || card.logo}
+                alt="Logo"
+                onClick={triggerFileSelect}
+              />
+              <HiddenInput
+                id="fileInput"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </LogoContainer>
+            <ContentContainer>
+              <Title>{card.title}</Title>
+              <Subtitle>{card.subtitle}</Subtitle>
+              <Rating>
+                {card.rating} <RatingCount>(258)</RatingCount>
+              </Rating>
+              <TagContainer>
+                {card.tags.map((tag, i) => (
+                  <Tag key={i}>{tag}</Tag>
+                ))}
+              </TagContainer>
+              <Quote>“ {card.quote} ”</Quote>
+            </ContentContainer>
+          </Card>
+        ))}
+      </GridContainer>
+    </Container>
   );
 };
 
-
 const Container = styled.div`
   margin-top: 20px;
-  width: 88%;
-  margin: auto;
-  font-family: "pretendard";
-`
-
-const GridContainer = styled.div`
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 40px 70px; /* 행 간격: 30px, 열 간격: 50px */
-  padding: 20px;
-  background-color: #000;
-`;
-
-
-const CardContainer = styled.div`
+  width: 100%;
+  font-family: "Pretendard", sans-serif;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  float: left;
-`
+  justify-content: center;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+`;
 
 const Card = styled.div`
-  width: 100%; /* 내부 내용 크기에 맞게 조정 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+`;
+
+const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  margin-right: 20px;
 `;
-
-const Title = styled.h1`
-  font-size: 25px;
-  font-weight: 900;
-  margin: 0;
-  font-family: "ejeonghan";
-`;
-
-const Subtitle = styled.p`
-  font-size: 13.5px;
-  font-weight: 700;
-  margin: 5px 0px 5px 0px;
-`;
-
-const Button = styled.button`
-  padding: 5px 10px;
-  font-size: 14px;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #333;
-  }
-`;
-
-const ImgContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
 
 const LogoImg = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
+  border-radius: 15px;
   cursor: pointer;
-  border-radius: 20px;
-  margin-right: 20px;
 `;
 
 const HiddenInput = styled.input`
   display: none;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+`;
+
+const Subtitle = styled.p`
+  font-size: 12px;
+  color: #555;
+  margin: 5px 0;
+`;
+
+const Rating = styled.div`
+  font-size: 8px;
+  margin: 5px 0;
+`;
+
+const RatingCount = styled.span`
+  font-size: 10px;
+  color: #999;
+`;
+
+const TagContainer = styled.div`
+  display: flex;
+  gap: 2px;
+  margin: 5px 0;
+`;
+
+const Tag = styled.div`
+  padding: 2px 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 6px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Quote = styled.p`
+  font-size: 14px;
+  font-style: italic;
+  color: #333;
+  margin-top: 10px;
 `;
