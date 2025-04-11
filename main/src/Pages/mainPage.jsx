@@ -8,10 +8,10 @@ export const MainPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleStartClick = () => {
-    setIsTransitioning(true); // 애니메이션 시작
+    setIsTransitioning(true);
     setTimeout(() => {
-      navigate('/Login'); // 페이지 이동
-    }, 1000); // 애니메이션 지속 시간과 일치
+      navigate('/Login'); 
+    }, 1000); 
   };
 
   return (
